@@ -6,12 +6,12 @@ const Orders = () => {
    const [data , setData] = useState([]);
 
     const fetchOrders = async () => {
-      const response = await axios.get("http://localhost:8082/api/orders/all");
+      const response = await axios.get("https://fooapi-backend-production.up.railway.app/api/orders/all");
       setData(response.data);
     };
 
      const updateStatus = async (event, orderId) => {
-      const response =  await axios.patch(`http://localhost:8082/api/orders/status/${orderId}?status=${event.target.value}`);
+      const response =  await axios.patch(`https://fooapi-backend-production.up.railway.app/api/orders/status/${orderId}?status=${event.target.value}`);
       if (response.status === 200) {
        await fetchOrders(); 
       }
